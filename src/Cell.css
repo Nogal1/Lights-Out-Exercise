@@ -4,9 +4,9 @@
   height: 50px;
   border: 1px solid #333;
   cursor: pointer;
-  background-color: grey; /* Set unlit cell color to grey */
+  background-color: yellow; /* Set unlit cell color to grey */
 }
 
 .Cell-lit {
-  background-color: yellow; /* Set lit cell color to yellow */
+  background-color: grey; /* Set lit cell color to yellow */
 }
