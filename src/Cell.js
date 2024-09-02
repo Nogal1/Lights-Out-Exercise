@@ -3,19 +3,17 @@ import "./Cell.css";
 
 /** A single cell on the board.
  *
- * This has no state --- just two props:
+ * Props:
+ * - isLit: boolean, true if this cell is lit
+ * - flipCellsAroundMe: a function passed to toggle this cell & neighbors
  *
- * - flipCellsAroundMe: a function rec'd from the board which flips this
- *      cell and the cells around of it
- *
- * - isLit: boolean, is this cell lit?
- *
- * This handles clicks --- by calling flipCellsAroundMe
- *
+ * This component renders a <td> element.
+ * It will receive `isLit` to know if it should be rendered as lit or unlit.
  **/
 
-function Cell({ flipCellsAroundMe, isLit }) {
-  const classes = `Cell ${isLit ? "Cell-lit" : ""}`;
+function Cell({ isLit, flipCellsAroundMe }) {
+  const classes = `Cell ${isLit ? "Cell-lit" : "Cell-unlit"}`;
+
   return <td className={classes} onClick={flipCellsAroundMe} />;
 }
 

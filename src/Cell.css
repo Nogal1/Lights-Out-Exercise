@@ -1,12 +1,32 @@
-/* Cell.css */
 .Cell {
   width: 50px;
   height: 50px;
-  border: 1px solid #333;
-  cursor: pointer;
-  background-color: yellow; /* Set unlit cell color to grey */
+  background-color: #333;
+  border-radius: 10px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition on toggle */
+  cursor: pointer; /* Pointer cursor on hover */
 }
 
 .Cell-lit {
-  background-color: grey; /* Set lit cell color to yellow */
+  background-color: #FFD700; /* Gold color for lit cells */
+}
+
+.Cell-unlit {
+  background-color: #555; /* Dark grey for unlit cells */
+}
+
+/* Hover effect */
+.Cell:hover {
+  box-shadow: 0 0 10px #FFD700; /* Glow effect on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+/* Win message styling */
+.Board-won h1 {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+.Board-won p {
+  font-size: 1.2em;
 }
