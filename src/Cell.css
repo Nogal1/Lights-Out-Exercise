@@ -1,10 +1,12 @@
+/* Cell.css */
 .Cell {
-  height: 100px;
-  width: 100px;
-  background-color: darkgray;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #333;
   cursor: pointer;
+  background-color: grey; /* Set unlit cell color to grey */
 }
 
 .Cell-lit {
-  background-color: white;
+  background-color: yellow; /* Set lit cell color to yellow */
 }

@@ -33,23 +33,14 @@ function Board({ nrows = 5, ncols = 5, chanceLightStartsOn = 0.25 }) {
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
   function createBoard() {
     let initialBoard = [];
-    let hasLitCell = false;
 
     for (let y = 0; y < nrows; y++) {
       let row = [];
       for (let x = 0; x < ncols; x++) {
         const isLit = Math.random() < chanceLightStartsOn;
-        if (isLit) hasLitCell = true;
         row.push(isLit);
       }
       initialBoard.push(row);
-    }
-
-    // If no cells were lit, ensure at least one random cell is lit
-    if (!hasLitCell) {
-      const randY = Math.floor(Math.random() * nrows);
-      const randX = Math.floor(Math.random() * ncols);
-      initialBoard[randY][randX] = true;
     }
 
     console.log("Initial Board:", initialBoard); // Debug: Log the board
@@ -71,13 +62,14 @@ function Board({ nrows = 5, ncols = 5, chanceLightStartsOn = 0.25 }) {
         }
       };
 
+      console.log(`Flipping cells around ${coord}`); // Debug: Log the flip action
       flipCell(y, x, boardCopy);
       flipCell(y, x - 1, boardCopy);
       flipCell(y, x + 1, boardCopy);
-      flipCell(y - 1, boardCopy);
-      flipCell(y + 1, boardCopy);
+      flipCell(y - 1, x, boardCopy);
+      flipCell(y + 1, x, boardCopy);
 
-      console.log("Updated Board:", boardCopy); // Debug: Log the board after flipping cells
+      console.log("Updated Board:", boardCopy); // Debug: Log the updated board
       return boardCopy;
     });
   }
